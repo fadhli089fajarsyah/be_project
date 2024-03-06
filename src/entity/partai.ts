@@ -19,5 +19,5 @@ export class partai {
     alamat_partai: string
     
     @Column()
-    iamage_partai: string
+    image_partai: string
 }

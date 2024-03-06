@@ -4,6 +4,7 @@ import { User } from "./entity/User"
 import { paslon } from "./entity/paslon"
 import { partai } from "./entity/partai"
 import { berita } from "./entity/berita"
+import { voter } from "./entity/voter"
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -18,7 +19,8 @@ export const AppDataSource = new DataSource({
         User,
         paslon,
         partai,
-        berita
+        berita,
+        voter
     ],
     migrations: [],
     subscribers: [],
