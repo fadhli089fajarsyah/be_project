@@ -38,4 +38,18 @@ export default new class partaiService {
         }
     }
 
+    async delete(id: number): Promise<void> {
+        try {
+            await AppDataSource
+                .createQueryBuilder()
+                .delete()
+                .from(partai)
+                .where("id_partai = :id", { id })
+                .execute();
+        } catch (error) {
+            throw error;
+        }
+    }
+
+
 }

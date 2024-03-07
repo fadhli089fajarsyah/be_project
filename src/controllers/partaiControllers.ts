@@ -21,4 +21,16 @@ export default new class partaiControllers {
             throw error
         }
     }
+    async delete(req: Request, res: Response): Promise<Response> {
+        try {
+            const { id_partai } = req.params
+
+            await partaiService.delete(parseInt(id_partai))
+
+            return res.status(204).send()
+
+        } catch (error) {
+            throw error
+        }
+    }
 }
