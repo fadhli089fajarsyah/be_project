@@ -39,4 +39,16 @@ export default new class paslonService {
             throw error
         }
     }
+    async delete(id: number): Promise<void> {
+        try {
+            await AppDataSource
+                .createQueryBuilder()
+                .delete()
+                .from(paslon)
+                .where("id_paslon = :id", { id })
+                .execute();
+        } catch (error) {
+            throw error;
+        }
+    }
 }

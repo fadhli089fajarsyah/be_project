@@ -25,4 +25,17 @@ export default new class UserControllers {
             return res.status(500).json({ message: error })
         }
     }
+
+    async delete(req: Request, res: Response): Promise<Response> {
+        try {
+            const { id_paslon } = req.params
+
+            await paslonService.delete(parseInt(id_paslon))
+
+            return res.status(204).send()
+
+        } catch (error) {
+            throw error
+        }
+    }
 }

@@ -19,6 +19,7 @@ Route.post("/berita_Add", beritaControllers.create)
 Route.post("/partaiAdd", partaiControllers.create)
 
 // delete
+Route.delete("/delete_paslon/:id_paslon", paslon.delete)
 Route.delete("/delete_berita/:id_berita", beritaControllers.delete)
 Route.delete("/delete_partai/:id_partai", partaiControllers.delete)
 
