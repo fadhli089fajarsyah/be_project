@@ -19,6 +19,7 @@ Route.post("/berita_Add", beritaControllers.create)
 Route.post("/partaiAdd", partaiControllers.create)
 
 // delete
-Route.delete("/delete/:id_partai", partaiControllers.delete)
+Route.delete("/delete_berita/:id_berita", beritaControllers.delete)
+Route.delete("/delete_partai/:id_partai", partaiControllers.delete)
 
 export default Route

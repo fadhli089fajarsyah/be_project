@@ -25,4 +25,16 @@ export default new class UserControllers {
             return res.status(500).json({ message: error })
         }
     }
+    async delete(req: Request, res: Response): Promise<Response> {
+        try {
+            const { id_berita } = req.params
+
+            await beritaService.delete(parseInt(id_berita))
+
+            return res.status(204).send()
+
+        } catch (error) {
+            throw error
+        }
+    }
 }
