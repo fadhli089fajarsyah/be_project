@@ -2,11 +2,15 @@
 
 import { Request, Response } from "express";
 import paslonService from "../services/paslonService";
+import { paslonVald } from "../validator/paslon";
 
 export default new class UserControllers {
     async create(req: Request, res: Response): Promise<Response> {
         try {
             const data = req.body
+
+            const {error, value} = paslonVald.validate(data)
+			if(error) return res.status(400).json({message: error.details[0].message})
 
             const paslon = await paslonService.create(data)
 
