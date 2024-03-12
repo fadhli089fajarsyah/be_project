@@ -2,11 +2,15 @@
 
 import { Request, Response } from "express";
 import UserServices from "../services/UserServices";
+import { userVald } from "../validator/userValidator";
 
 export default new class UserControllers {
   async create(req: Request, res: Response) : Promise<Response> {
     try {
       const data = req.body
+
+      const {error, value} = userVald.validate(data)
+			if(error) return res.status(400).json({message: error.details[0].message})
 
       const user = await UserServices.create(data)
 
