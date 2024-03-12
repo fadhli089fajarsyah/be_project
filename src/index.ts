@@ -17,20 +17,3 @@ AppDataSource.initialize().then(async () => {
 
     app.listen(port, () => console.log(`Server succes on PORT ${port}`))
 }).catch(error => console.log(error))
-
-// console.log("Inserting a new user into the database...")
-// const user = new User()
-// user.nama_user = "Timber"
-// user.alamat_user = "Saw"
-// user.jenis_kelamin_user = "L"
-// user.username_user = "aaaaa"
-// user.password_user = "<PASSWORD>"
-// user.image_user = "aaaaaalseiu2873bhsbuw"
-// await AppDataSource.manager.save(user)
-// console.log("Saved a new user with id: " + user.id)
-
-// console.log("Loading users from the database...")
-// const users = await AppDataSource.manager.find(User)
-// console.log("Loaded users: ", users)
-
-// console.log("Here you can setup and run express / fastify / any other framework.")

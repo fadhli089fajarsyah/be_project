@@ -1,7 +1,7 @@
 import * as express from "express";
 import UserControllers from "../controllers/UserControllers";
 import paslon from "../controllers/paslon";
-import beritaControllers from "../controllers/berita.Controllers";
+import beritaControllers from "../controllers/beritaControllers";
 import partaiControllers from "../controllers/partaiControllers";
 
 
