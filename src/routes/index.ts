@@ -28,4 +28,4 @@ Route.put("/berita_edit/:id_berita", beritaControllers.edit)
 Route.put("/partai_edit/:id_partai", partaiControllers.edit)
 Route.put("/paslon_edit/:id_paslon", paslon.edit)
 
-export default Route
+export default Route    
