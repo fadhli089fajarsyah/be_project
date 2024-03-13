@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column,CreateDateColumn,UpdateDateColumn } from "typeorm"
+
 
 @Entity()
 export class voter {
@@ -7,15 +8,15 @@ export class voter {
     id_voter: number
 
     @Column()
-    nama_voter: string
+    id_user: string
 
     @Column()
-    alamat_voter: string
+    id_paslon: string
 
-    @Column()
-    jenis_kelamin_voter: string
+    @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
+    public created_at: Date;
 
-    @Column()
-    pilihan_voter: string
+    @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
+    public updated_at: Date;
 
 }
