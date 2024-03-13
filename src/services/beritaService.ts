@@ -52,4 +52,24 @@ export default new class paslonService {
         }
     }
 
+    async edit(id_berita: number, reqBody: any): Promise<any> {
+        try {
+            const repository = AppDataSource.getRepository(berita);
+    
+            const existingBerita = await repository.findOne({ where: { id_berita } });
+    
+            if (!existingBerita) {
+                throw new Error("Berita tidak ditemukan");
+            }
+    
+            repository.merge(existingBerita, reqBody);
+            const updatedBerita = await repository.save(existingBerita);
+    
+            return updatedBerita;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    
 }

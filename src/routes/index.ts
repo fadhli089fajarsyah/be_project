@@ -23,4 +23,7 @@ Route.delete("/delete_paslon/:id_paslon", paslon.delete)
 Route.delete("/delete_berita/:id_berita", beritaControllers.delete)
 Route.delete("/delete_partai/:id_partai", partaiControllers.delete)
 
+//edit
+Route.put("/berita_edit/:id_berita", beritaControllers.edit)
+
 export default Route
