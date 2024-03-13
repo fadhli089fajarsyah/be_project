@@ -8,9 +8,9 @@ import partaiControllers from "../controllers/partaiControllers";
 const Route = express.Router()
 //menampilkan data
 Route.get("/users", UserControllers.find)
-Route.get("/paslonAdds",paslon.find )
-Route.get("/beritas",beritaControllers.find )
-Route.get("/partais",partaiControllers.find )
+Route.get("/paslons", paslon.find)
+Route.get("/beritas", beritaControllers.find)
+Route.get("/partais", partaiControllers.find)
 
 // buat menambah data
 Route.post("/user", UserControllers.create)
@@ -26,5 +26,6 @@ Route.delete("/delete_paslon/:id_paslon", paslon.delete)
 //edit
 Route.put("/berita_edit/:id_berita", beritaControllers.edit)
 Route.put("/partai_edit/:id_partai", partaiControllers.edit)
+Route.put("/paslon_edit/:id_paslon", paslon.edit)
 
 export default Route

@@ -42,4 +42,21 @@ export default new class UserControllers {
             throw error
         }
     }
+
+    async edit(req: Request, res: Response): Promise<Response> {
+        try {
+            const { id_paslon } = req.params;
+            const data = req.body;
+
+            const { error, value } = paslonVald.validate(data);
+            if (error) return res.status(400).json({ message: error.details[0].message });
+
+            await paslonService.edit(parseInt(id_paslon), data);
+
+            return res.status(200).json({ message: "Berita berhasil diperbarui." });
+        } catch (error) {
+            console.error(error);
+            return res.status(500).json({ message: "Terjadi kesalahan dalam mengedit berita." });
+        }
+    }
 }

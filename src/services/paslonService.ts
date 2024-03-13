@@ -1,5 +1,5 @@
-import { AppDataSource } from "../data-source";
-import { paslon } from "../entity/paslon";
+import { AppDataSource } from "../data-source"
+import { paslon } from "../entity/paslon"
 
 export default new class paslonService {
     async create(reqBody: any): Promise<any> {
@@ -46,9 +46,24 @@ export default new class paslonService {
                 .delete()
                 .from(paslon)
                 .where("id_paslon = :id", { id })
-                .execute();
+                .execute()
         } catch (error) {
-            throw error;
+            throw error
+        }
+    }
+    async edit(id_paslon: number, reqBody: any): Promise<any> {
+        try {
+            const repository = AppDataSource.getRepository(paslon)
+    
+            const dataPaslonEdit = await repository.findOne({ where: { id_paslon } })
+    
+            
+            repository.merge(dataPaslonEdit, reqBody)
+            const updatedpaslon = await repository.save(dataPaslonEdit)
+    
+            return updatedpaslon
+        } catch (error) {
+            throw error
         }
     }
 }
