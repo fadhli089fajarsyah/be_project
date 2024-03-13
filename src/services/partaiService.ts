@@ -51,5 +51,19 @@ export default new class partaiService {
         }
     }
 
-
+    async edit(id_partai: number, reqBody: any): Promise<any> {
+        try {
+            const repository = AppDataSource.getRepository(partai);
+    
+            const dataPartaiEdit = await repository.findOne({ where: { id_partai } });
+    
+            
+            repository.merge(dataPartaiEdit, reqBody);
+            const updatedpartai = await repository.save(dataPartaiEdit);
+    
+            return updatedpartai;
+        } catch (error) {
+            throw error;
+        }
+    }
 }

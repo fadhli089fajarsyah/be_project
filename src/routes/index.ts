@@ -19,11 +19,12 @@ Route.post("/berita_Add", beritaControllers.create)
 Route.post("/partaiAdd", partaiControllers.create)
 
 // delete
-Route.delete("/delete_paslon/:id_paslon", paslon.delete)
 Route.delete("/delete_berita/:id_berita", beritaControllers.delete)
 Route.delete("/delete_partai/:id_partai", partaiControllers.delete)
+Route.delete("/delete_paslon/:id_paslon", paslon.delete)
 
 //edit
 Route.put("/berita_edit/:id_berita", beritaControllers.edit)
+Route.put("/partai_edit/:id_partai", partaiControllers.edit)
 
 export default Route
