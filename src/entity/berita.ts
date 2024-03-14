@@ -4,7 +4,7 @@ import { Entity, PrimaryGeneratedColumn, Column,CreateDateColumn,UpdateDateColum
 export class berita {
 
     @PrimaryGeneratedColumn()
-    id_berita: number
+    id: number
 
     @Column()
     judul_berita: string

@@ -13,19 +13,19 @@ Route.get("/beritas", beritaControllers.find)
 Route.get("/partais", partaiControllers.find)
 
 // buat menambah data
-Route.post("/user", UserControllers.create)
+Route.post("/useradd", UserControllers.create)
 Route.post("/paslonAdd", paslon.create)
 Route.post("/berita_Add", beritaControllers.create)
 Route.post("/partaiAdd", partaiControllers.create)
 
 // delete
-Route.delete("/delete_berita/:id_berita", beritaControllers.delete)
-Route.delete("/delete_partai/:id_partai", partaiControllers.delete)
-Route.delete("/delete_paslon/:id_paslon", paslon.delete)
+Route.delete("/delete_berita/:id", beritaControllers.delete)
+Route.delete("/delete_partai/:id", partaiControllers.delete)
+Route.delete("/delete_paslon/:id", paslon.delete)
 
 //edit
-Route.put("/berita_edit/:id_berita", beritaControllers.edit)
-Route.put("/partai_edit/:id_partai", partaiControllers.edit)
-Route.put("/paslon_edit/:id_paslon", paslon.edit)
+Route.put("/berita_edit/:id", beritaControllers.edit)
+Route.put("/partai_edit/:id", partaiControllers.edit)
+Route.put("/paslon_edit/:id", paslon.edit)
 
 export default Route    

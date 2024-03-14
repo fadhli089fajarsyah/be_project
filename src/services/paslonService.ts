@@ -45,17 +45,17 @@ export default new class paslonService {
                 .createQueryBuilder()
                 .delete()
                 .from(paslon)
-                .where("id_paslon = :id", { id })
+                .where("id = :id", { id })
                 .execute()
         } catch (error) {
             throw error
         }
     }
-    async edit(id_paslon: number, reqBody: any): Promise<any> {
+    async edit(id: number, reqBody: any): Promise<any> {
         try {
             const repository = AppDataSource.getRepository(paslon)
     
-            const dataPaslonEdit = await repository.findOne({ where: { id_paslon } })
+            const dataPaslonEdit = await repository.findOne({ where: { id } })
     
             
             repository.merge(dataPaslonEdit, reqBody)

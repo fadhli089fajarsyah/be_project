@@ -1,11 +1,20 @@
-import { Entity, PrimaryGeneratedColumn, Column,CreateDateColumn,UpdateDateColumn } from "typeorm"
+import {
+    Entity,
+    PrimaryGeneratedColumn,
+    Column,
+    CreateDateColumn,
+    UpdateDateColumn,
+    ManyToOne
 
+} from "typeorm"
+
+import { User } from "./User"
 
 @Entity()
 export class voter {
 
     @PrimaryGeneratedColumn()
-    id_voter: number
+    id: number
 
     @Column()
     id_user: string
@@ -18,5 +27,8 @@ export class voter {
 
     @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
     public updated_at: Date;
+
+    @ManyToOne(() => User, (User) => User.votes)
+    User: User
 
 }

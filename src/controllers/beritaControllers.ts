@@ -30,9 +30,9 @@ export default new class UserControllers {
 
     async delete(req: Request, res: Response): Promise<Response> {
         try {
-            const { id_berita } = req.params
+            const { id } = req.params
 
-            await beritaService.delete(parseInt(id_berita))
+            await beritaService.delete(parseInt(id))
 
             return res.status(204).json({});
 
@@ -43,13 +43,13 @@ export default new class UserControllers {
 
     async edit(req: Request, res: Response): Promise<Response> {
         try {
-            const { id_berita } = req.params;
+            const { id } = req.params;
             const data = req.body;
 
             const { error, value } = beritaVald.validate(data);
             if (error) return res.status(400).json({ message: error.details[0].message });
 
-            await beritaService.edit(parseInt(id_berita), data);
+            await beritaService.edit(parseInt(id), data);
 
             return res.status(200).json({ message: "Berita berhasil diperbarui." });
         } catch (error) {

@@ -1,0 +1,2 @@
+satu user bisa ke salah satu vote (one to many)
+satu vote bisa ke beberapa voter (many to one)

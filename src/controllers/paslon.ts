@@ -32,9 +32,9 @@ export default new class UserControllers {
 
     async delete(req: Request, res: Response): Promise<Response> {
         try {
-            const { id_paslon } = req.params
+            const { id } = req.params
 
-            await paslonService.delete(parseInt(id_paslon))
+            await paslonService.delete(parseInt(id))
 
             return res.status(204).send()
 
@@ -45,13 +45,13 @@ export default new class UserControllers {
 
     async edit(req: Request, res: Response): Promise<Response> {
         try {
-            const { id_paslon } = req.params;
+            const { id } = req.params;
             const data = req.body;
 
             const { error, value } = paslonVald.validate(data);
             if (error) return res.status(400).json({ message: error.details[0].message });
 
-            await paslonService.edit(parseInt(id_paslon), data);
+            await paslonService.edit(parseInt(id), data);
 
             return res.status(200).json({ message: "Berita berhasil diperbarui." });
         } catch (error) {

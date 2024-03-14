@@ -28,9 +28,9 @@ export default new class partaiControllers {
     }
     async delete(req: Request, res: Response): Promise<Response> {
         try {
-            const { id_partai } = req.params
+            const { id } = req.params
 
-            await partaiService.delete(parseInt(id_partai))
+            await partaiService.delete(parseInt(id))
 
             return res.status(204).send()
 
@@ -40,13 +40,13 @@ export default new class partaiControllers {
     }
     async edit(req: Request, res: Response): Promise<Response> {
         try {
-            const { id_partai } = req.params;
+            const { id } = req.params;
             const data = req.body;
 
             const { error, value } = partaiVald.validate(data);
             if (error) return res.status(400).json({ message: error.details[0].message });
 
-            await partaiService.edit(parseInt(id_partai), data);
+            await partaiService.edit(parseInt(id), data);
 
             return res.status(200).json({ message: "Berita berhasil diperbarui." });
         } catch (error) {

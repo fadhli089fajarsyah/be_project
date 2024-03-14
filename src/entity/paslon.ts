@@ -4,7 +4,7 @@ import { Entity, PrimaryGeneratedColumn, Column,CreateDateColumn,UpdateDateColum
 export class paslon {
 
     @PrimaryGeneratedColumn()
-    id_paslon: number
+    id: number
 
     @Column()
     nama_paslon: string

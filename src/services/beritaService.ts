@@ -45,18 +45,18 @@ export default new class paslonService {
                 .createQueryBuilder()
                 .delete()
                 .from(berita)
-                .where("id_berita = :id", { id })
+                .where("id = :id", { id })
                 .execute();
         } catch (error) {
             throw error;
         }
     }
 
-    async edit(id_berita: number, reqBody: any): Promise<any> {
+    async edit(id: number, reqBody: any): Promise<any> {
         try {
             const repository = AppDataSource.getRepository(berita);
     
-            const existingBerita = await repository.findOne({ where: { id_berita } });
+            const existingBerita = await repository.findOne({ where: { id } });
     
             if (!existingBerita) {
                 throw new Error("Berita tidak ditemukan");

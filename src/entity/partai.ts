@@ -4,7 +4,7 @@ import { Entity, PrimaryGeneratedColumn, Column,CreateDateColumn,UpdateDateColum
 export class partai {
 
     @PrimaryGeneratedColumn()
-    id_partai: number
+    id: number
 
     @Column()
     nama_partai: string

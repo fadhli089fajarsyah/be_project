@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn,OneToMany } from "typeorm"
+import { voter } from "./voter"
+
 
 @Entity()
 export class User {
@@ -29,5 +31,8 @@ export class User {
 
     @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
     public updated_at: Date;
+
+    @OneToMany(() => voter, (votes) => votes.User)
+  votes: voter[]
 
 }

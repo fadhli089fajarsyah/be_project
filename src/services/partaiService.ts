@@ -44,18 +44,18 @@ export default new class partaiService {
                 .createQueryBuilder()
                 .delete()
                 .from(partai)
-                .where("id_partai = :id", { id })
+                .where("id = :id", { id })
                 .execute();
         } catch (error) {
             throw error;
         }
     }
 
-    async edit(id_partai: number, reqBody: any): Promise<any> {
+    async edit(id: number, reqBody: any): Promise<any> {
         try {
             const repository = AppDataSource.getRepository(partai);
     
-            const dataPartaiEdit = await repository.findOne({ where: { id_partai } });
+            const dataPartaiEdit = await repository.findOne({ where: { id } });
     
             
             repository.merge(dataPartaiEdit, reqBody);
