@@ -7,11 +7,11 @@ export default new class paslonService {
             const repository = AppDataSource.getRepository(berita)
 
             const beritaAdd = repository.create({
-                judul_berita: reqBody.judul_berita,
-                author_berita: reqBody.author_berita,
-                tanggal: reqBody.tanggal,
-                detail_berita: reqBody.detail_berita,
-                iamage_berita: reqBody.iamage_berita,
+                title: reqBody.title,
+                author: reqBody.author,
+                date: reqBody.date,
+                detail: reqBody.detail,
+                image: reqBody.image,
             })
             await AppDataSource
                 .getRepository(berita)

@@ -1,9 +1,9 @@
 import joi from "joi";
 
 export const beritaVald = joi.object({
-    judul_berita: joi.string().required(),
-    author_berita: joi.string().required(),
-    tanggal: joi.date().required(),
-    detail_berita: joi.string().required(),
-    iamage_berita: joi.string().required(),
+    title: joi.string().required(),
+    author: joi.string().required(),
+    date: joi.date().required(),
+    detail: joi.string().required(),
+    image: joi.string().required(),
 })

@@ -7,19 +7,19 @@ export class berita {
     id: number
 
     @Column()
-    judul_berita: string
+    title: string
 
     @Column()
-    author_berita: string
+    author: string
 
     @Column()
-    tanggal: Date
+    date: Date
 
     @Column()
-    detail_berita: string
+    detail: string
 
     @Column()
-    iamage_berita: string
+    image: string
 
     @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
     public created_at: Date;
