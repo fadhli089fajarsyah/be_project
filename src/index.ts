@@ -1,12 +1,13 @@
 import { AppDataSource } from "./data-source"
-import { User } from "./entity/User"
 import express, { Request, Response } from "express"
 import Route from "./routes"
+import cors from 'cors';
 
 AppDataSource.initialize().then(async () => {
     const app = express()
     const port = 5000
 
+    app.use(cors)
     app.use(express.json())
     app.use('/api', Route)
 
